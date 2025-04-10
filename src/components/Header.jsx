@@ -4,12 +4,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from "react-router-dom"
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 
 
 
 function Header() {
 
     const [status,setStatus]=useState(false)
+
+    const WishlistArray =useSelector((state)=>state.wishlistReducer)
+
     const handleStatus=()=>{
         setStatus(!status)
     }
@@ -27,7 +31,7 @@ function Header() {
                     <li>
                         <Link to={'/wishlist'}>
                             <button className='border border-white rounded px-6 py-3 mx-8 text-white hover:bg-white hover:text-violet-700 '> <FontAwesomeIcon icon={faHeart} className='text-red-600'/> whishlist
-                            <span className='px-2 bg-gray-100 text-gray-600 ms-2 rounded'>1</span></button>
+                            <span className='px-2 bg-gray-100 text-gray-600 ms-2 rounded'>{WishlistArray?.length}</span></button>
                         </Link>
                     </li>
                     <li>
@@ -42,7 +46,7 @@ function Header() {
                     <li>
                         <Link to={'/wishlist'}>
                             <button className='border border-white rounded px-6 py-3 mx-8 text-white hover:bg-white hover:text-violet-700'> <FontAwesomeIcon icon={faHeart} className='text-red-600'/> whishlist
-                            <span className='px-2 bg-gray-100 text-gray-600 ms-2 rounded'>1</span></button>
+                            <span className='px-2 bg-gray-100 text-gray-600 ms-2 rounded'>{WishlistArray?.length}</span></button>
                         </Link>
                     </li>
                     <li>
